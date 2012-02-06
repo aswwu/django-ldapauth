@@ -8,7 +8,7 @@ TODO
 import re
 from django.contrib.auth.models import Group, User
 from django.db.models import Q
-from wwu_housing.ldapauth import LDAP
+from ldapauth import LDAP
 
 
 cn_re = re.compile(r'CN=(.*?),')
@@ -76,3 +76,10 @@ Django Group model instance. Found: %s\
     else:
         return User.objects.none()
 
+def is_member(user, group_list=[]):
+    person = LDAP("wwu").get_person_by_username(user)
+    return bool(set(group_list).intersection(set(person.groups)))
+
+def get_user_groups(user):
+    person = LDAP("wwu").get_person_by_username(user)
+    return getattr(person, "groups", [])

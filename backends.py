@@ -8,7 +8,7 @@ from django.contrib.auth.models import Permission
 from django.core.cache import cache
 from django.core.mail import mail_admins
 
-from wwu_housing.ldapauth import LDAP
+from ldapauth import LDAP
 
 
 class LDAPBackend(ModelBackend):
