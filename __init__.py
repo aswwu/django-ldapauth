@@ -294,9 +294,8 @@ class LDAP(object):
 
     def visit_object(self, obj, visited_objects):
         """
-         This is the second half of iddfs that does the iteration
-        and recursion on the child members of the group that is being
-        searched.
+        The second half of the iddfs that does the iteration and recursion on
+        the child members of the group being searched.
         """
 
         if not isinstance(visited_objects, list):
