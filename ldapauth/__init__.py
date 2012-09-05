@@ -5,7 +5,6 @@ results.
 from __future__ import with_statement
 import binascii
 import ctypes
-import ConfigParser
 import ldap
 import logging
 import struct
